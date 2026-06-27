@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACSI · 21719 — Preparación del examen</title>
+<title>ACSI — Preparación del examen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -173,6 +173,99 @@ h2{font-family:var(--disp);font-weight:600;font-size:1.35rem;margin:0 0 4px}
 .opt .mk{font-family:var(--mono);font-weight:600;margin-right:8px;color:var(--ink-soft)}
 .expl{font-size:.84rem;color:var(--ink-soft);margin-top:8px;padding:9px 12px;background:#f5f8fa;border-left:3px solid var(--time);border-radius:0 6px 6px 0;display:none}
 .expl.show{display:block}
+
+/* plan exprés */
+.plan{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:10px;padding:18px 22px 20px;box-shadow:var(--shadow);margin-top:8px}
+.plan-h{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.plan-sub{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft)}
+.plansteps{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.plansteps li{display:flex;gap:13px;align-items:flex-start;font-size:.94rem}
+.plansteps .pl{font-family:var(--disp);font-weight:700;font-size:.85rem;color:#fff;background:var(--ink);width:24px;height:24px;border-radius:6px;display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+.plansteps li:first-child .pl{background:var(--signal)}
+.plannote{font-size:.88rem;color:var(--ink-soft);margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+
+/* método / recetas */
+.met{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:14px;box-shadow:var(--shadow);overflow:hidden}
+.met>.mh{display:flex;gap:13px;align-items:center;padding:15px 20px;cursor:pointer}
+.met>.mh:hover{background:#f7fafb}
+.met .mtag{font-family:var(--mono);font-size:.66rem;letter-spacing:.5px;background:var(--ink);color:#fff;padding:4px 8px;border-radius:5px;flex-shrink:0}
+.met .mt{flex:1;font-family:var(--disp);font-weight:600;font-size:1rem}
+.met .mchev{font-family:var(--mono);color:var(--ink-soft);transition:.25s}
+.met.open .mchev{transform:rotate(90deg)}
+.met .mbody{display:none;padding:2px 20px 20px;border-top:1px solid var(--line)}
+.met.open .mbody{display:block}
+.met .when{font-size:.84rem;color:var(--ink-soft);margin:12px 0}
+.met .when b{color:var(--time-d)}
+.recipe{list-style:none;counter-reset:r;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.recipe li{counter-increment:r;display:flex;gap:11px;align-items:flex-start;font-size:.92rem}
+.recipe li::before{content:counter(r);font-family:var(--mono);font-weight:600;font-size:.72rem;color:var(--signal-d);background:#fbeede;border:1px solid #f4d9bd;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+.recipe code{font-family:var(--mono);font-size:.86em;background:#16242f;color:#e9eef2;padding:2px 7px;border-radius:4px;display:inline-block}
+.pitfall{font-size:.84rem;color:#9a2730;background:#fbecee;border-left:3px solid var(--bad);border-radius:0 6px 6px 0;padding:9px 12px;margin-top:14px}
+.pitfall b{color:#7a1d25}
+
+/* filtros test */
+.qfilters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.chip{font-family:var(--mono);font-size:.74rem;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.12s}
+.chip:hover{border-color:var(--time);color:var(--time-d)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.fail.on{background:var(--bad);border-color:var(--bad)}
+
+/* foco accesible */
+button:focus-visible,.opt:focus-visible,input:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+/* toggle segmentado */
+.seg{display:inline-flex;background:#e6edf1;border:1px solid var(--line);border-radius:9px;padding:3px;margin-bottom:22px;gap:3px}
+.segb{font-family:var(--mono);font-size:.8rem;border:0;background:transparent;color:var(--ink-soft);padding:8px 16px;border-radius:6px;cursor:pointer;transition:.15s}
+.segb.on{background:var(--ink);color:#fff}
+
+/* drills */
+.drillchips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;box-shadow:var(--shadow)}
+.dcard .dprompt{font-size:.96rem;margin-bottom:14px}
+.dcard .dprompt code{font-family:var(--mono);font-size:.85em;background:#16242f;color:#e9eef2;padding:1px 6px;border-radius:4px}
+.dtable{font-family:var(--mono);font-size:.82rem;border-collapse:collapse;margin:10px 0}
+.dtable th,.dtable td{border:1px solid var(--line);padding:4px 12px;text-align:center}
+.dtable th{background:#eef3f6}
+.dfields{display:grid;gap:10px;margin:6px 0 14px}
+@media(min-width:560px){.dfields{grid-template-columns:1fr 1fr}}
+.dfield{display:flex;flex-direction:column;gap:4px}
+.dfield label{font-family:var(--mono);font-size:.76rem;color:var(--ink-soft)}
+.dfield .inp{display:flex;align-items:center;gap:8px}
+.dfield input{font-family:var(--mono);font-size:.95rem;padding:9px 11px;border:1px solid var(--line);border-radius:7px;width:130px;background:#fafcfd;color:var(--ink)}
+.dfield .u{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft)}
+.dfield.ok input{border-color:var(--ok);background:#eaf7ef}
+.dfield.no input{border-color:var(--bad);background:#fbecee}
+.dfield .fb{font-family:var(--mono);font-size:.74rem}
+.dfield.ok .fb{color:#1d6b3b}
+.dfield.no .fb{color:#9a2730}
+.dbtns{display:flex;gap:8px;flex-wrap:wrap}
+.dsol{display:none;margin-top:14px;font-family:var(--mono);font-size:.86rem;line-height:1.8;background:#16242f;color:#e9eef2;border-radius:7px;padding:13px 15px;overflow-x:auto}
+.dsol.show{display:block}
+.dsol b{color:var(--signal)}
+
+/* simulacro */
+.simbar{position:sticky;top:54px;z-index:20;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--ink);color:#dfe8ee;border-radius:9px;padding:11px 16px;margin-bottom:20px;box-shadow:var(--shadow)}
+.timer{font-family:var(--mono);font-size:1.6rem;font-weight:600;letter-spacing:1px}
+.timer.low{color:var(--signal)}
+.timer.zero{color:var(--bad)}
+.simbar .lab{font-family:var(--mono);font-size:.68rem;color:#8aa0ad;text-transform:uppercase;letter-spacing:1px}
+.simbar .sp{margin-left:auto;display:flex;gap:7px;flex-wrap:wrap}
+.simbtn{font-family:var(--mono);font-size:.76rem;border:1px solid #38505d;background:transparent;color:#cfe0e9;padding:7px 12px;border-radius:6px;cursor:pointer;transition:.15s}
+.simbtn:hover{border-color:var(--signal);color:#fff}
+.simbtn.go{background:var(--signal);border-color:var(--signal);color:#fff}
+.simtema{font-family:var(--disp);font-weight:600;font-size:1rem;color:var(--ink);margin:24px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--ink)}
+.simq{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
+.simq .sh{padding:14px 18px;display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.simq .sh:hover{background:#f7fafb}
+.simq .num{font-family:var(--mono);font-weight:600;font-size:.8rem;color:#fff;background:var(--time);border-radius:5px;padding:3px 8px;flex-shrink:0}
+.simq .stx{flex:1;font-size:.94rem}
+.simq .pts{font-family:var(--mono);font-size:.7rem;color:var(--signal-d);flex-shrink:0;margin-top:2px}
+.simq .ss{display:none;padding:0 18px 18px;border-top:1px dashed var(--line)}
+.simq.open .ss{display:block}
+.simq .ss .lbl{font-family:var(--mono);font-size:.72rem;color:var(--signal-d);text-transform:uppercase;letter-spacing:.5px;margin:12px 0 6px}
+.simq .ss .sc{font-size:.9rem;line-height:1.7}
+.simq .ss .calc{font-family:var(--mono);font-size:.85rem;background:#16242f;color:#e9eef2;border-radius:6px;padding:10px 12px;margin:6px 0;line-height:1.8;overflow-x:auto}
+.simq .ss .calc b{color:var(--signal)}
 footer{max-width:1080px;margin:0 auto;padding:0 22px 50px;font-family:var(--mono);font-size:.72rem;color:var(--ink-soft)}
 a{color:var(--signal-d)}
 </style>
@@ -190,7 +283,10 @@ a{color:var(--signal-d)}
       <button data-v="inicio" class="active">inicio</button>
       <button data-v="temario">temario</button>
       <button data-v="formulas">fórmulas</button>
+      <button data-v="metodo">método</button>
       <button data-v="ejercicios">ejercicios</button>
+      <button data-v="teoria">teoría</button>
+      <button data-v="practica">práctica</button>
       <button data-v="test">test</button>
     </nav>
   </div>
@@ -228,7 +324,17 @@ a{color:var(--signal-d)}
     </div>
   </div>
 
-  <p class="lead" style="margin-bottom:0">Sugerencia de ruta: <b>repasa el temario</b> tema a tema, <b>memoriza el formulario</b>, <b>resuelve los ejercicios</b> tapando la solución, y <b>haz el test</b> al final para detectar huecos.</p>
+  <div class="plan">
+    <div class="plan-h"><span class="eyebrow" style="margin:0">Ruta exprés para aprobar</span><span class="plan-sub">orden por puntos/hora · empieza por lo de arriba</span></div>
+    <ol class="plansteps">
+      <li><span class="pl">1</span><div><b>Asegura los problemas formulables (máximo retorno).</b> T4 y T5 (colas), T1 (Amdahl/Gustafson), T3 (CPI·MIPS) y T7 (predicción) dan puntos garantizados si aplicas la receta. Ve a <a href="#" data-go="metodo">método</a> y haz cada tipo una vez.</div></li>
+      <li><span class="pl">2</span><div><b>Caza los puntos baratos de teoría.</b> Las preguntas de "justifica/explica" valen 0,5–1 pt y se contestan en 3 líneas. Memoriza las respuestas modelo en <a href="#" data-go="teoria">teoría</a>.</div></li>
+      <li><span class="pl">3</span><div><b>Clava el formulario.</b> Sin fórmulas no hay problema resuelto. Repasa <a href="#" data-go="formulas">fórmulas</a> hasta poder escribirlas de memoria.</div></li>
+      <li><span class="pl">4</span><div><b>Practica con el cronómetro.</b> Resuelve los <a href="#" data-go="ejercicios">ejercicios</a> con la solución tapada. Si tardas más de ~10 min en uno, vuelve a su receta.</div></li>
+      <li><span class="pl">5</span><div><b>Detecta huecos.</b> Haz el <a href="#" data-go="test">test</a>, filtra por tema flojo y usa "repasar fallos" hasta tenerlos a 0.</div></li>
+    </ol>
+    <p class="plannote">Estrategia de examen: cada tema va en hoja aparte, así que <b>contesta primero lo que dominas</b> (no te quedes atascado en un problema). Un tema entero en blanco pesa mucho: rasca al menos la teoría y el planteamiento de cada uno.</p>
+  </div>
 </section>
 
 <!-- ============ TEMARIO ============ -->
@@ -237,6 +343,14 @@ a{color:var(--signal-d)}
   <h1>Resúmenes de teoría</h1>
   <p class="lead">Pulsa cada tema para desplegarlo. Cuando lo tengas claro, márcalo como repasado para que suba su barra en el monitor de inicio.</p>
   <div id="temas"></div>
+</section>
+
+<!-- ============ METODO ============ -->
+<section class="view" id="metodo">
+  <p class="eyebrow">Método · recetas</p>
+  <h1>Cómo atacar cada problema</h1>
+  <p class="lead">Para cada tipo de problema del examen, el guion paso a paso. Apréndete el orden: en el examen sigues la receta y rellenas con los datos. Esta es la parte que más rápido sube tu nota.</p>
+  <div id="metCont"></div>
 </section>
 
 <!-- ============ FORMULAS ============ -->
@@ -255,6 +369,44 @@ a{color:var(--signal-d)}
   <div id="exCont"></div>
 </section>
 
+<!-- ============ TEORIA ============ -->
+<section class="view" id="teoria">
+  <p class="eyebrow">Teoría para justificar</p>
+  <h1>Preguntas de desarrollo</h1>
+  <p class="lead">Las preguntas de "justifica / explica / ¿por qué?" del examen, con una respuesta modelo lista para escribir. Son puntos baratos: una respuesta corta y correcta vale lo mismo que media página. Pulsa para ver la respuesta.</p>
+  <div id="teoCont"></div>
+</section>
+
+<!-- ============ PRACTICA ============ -->
+<section class="view" id="practica">
+  <p class="eyebrow">Práctica activa</p>
+  <h1>Resuélvelo tú</h1>
+  <p class="lead">Lo que de verdad hace aprobar: practicar los problemas con tus propias manos. Genera ejercicios con números nuevos y autocorrección, o ponte a prueba con el examen real cronometrado.</p>
+  <div class="seg" id="practSeg">
+    <button class="segb on" data-mode="drills">drills numéricos</button>
+    <button class="segb" data-mode="sim">simulacro 3 h</button>
+  </div>
+
+  <div id="drillsMode">
+    <div class="drillchips" id="drillChips"></div>
+    <div id="drillArea"></div>
+  </div>
+
+  <div id="simMode" hidden>
+    <div class="simbar">
+      <span class="lab">tiempo restante</span>
+      <span class="timer" id="timer">3:00:00</span>
+      <div class="sp">
+        <button class="simbtn go" id="simStart">iniciar</button>
+        <button class="simbtn" id="simReset">reiniciar</button>
+        <button class="simbtn" id="simAll">mostrar soluciones</button>
+      </div>
+    </div>
+    <p class="lead" style="font-size:.9rem;margin-bottom:14px">Examen de la convocatoria ordinaria (21719) · 14 preguntas · cada tema en su bloque. Intenta resolverlo entero antes de mirar ninguna solución, como en el aula.</p>
+    <div id="simCont"></div>
+  </div>
+</section>
+
 <!-- ============ TEST ============ -->
 <section class="view" id="test">
   <p class="eyebrow">Autoevaluación</p>
@@ -266,6 +418,7 @@ a{color:var(--signal-d)}
     <button class="btn ghost" id="qShuffle">barajar</button>
     <button class="btn" id="qReset">reiniciar</button>
   </div>
+  <div class="qfilters" id="qFilters"></div>
   <div id="quizCont"></div>
 </section>
 
@@ -534,18 +687,147 @@ const QUIZ = [
 ];
 
 /* ----------------- STATE ----------------- */
-const state = { done:new Set(), quiz:{order:[...QUIZ.keys()], answered:{}, correct:0} };
+const METODO = [
+ {tag:"T1", t:"Amdahl / Gustafson", when:"Aceleras una parte k veces. <b>Amdahl</b> si el problema es de tamaño fijo (no escala con procesadores); <b>Gustafson</b> si es paralelismo puro que escala con el nº de procesadores.",
+  steps:[
+   "Identifica <code>p</code> (fracción mejorada), <code>s=1−p</code> y <code>k</code> (veces que aceleras).",
+   "Aceleración Amdahl: <code>A = 1/((1−p)+p/k)</code>.",
+   "Si te piden el <b>%</b> de tiempo (p), despeja de la fórmula igualando A al valor pedido.",
+   "Límite máximo (k→∞): <code>A_max = 1/(1−p)</code>.",
+   "Si escala con procesadores: Gustafson <code>A = (1−p)+p·k</code> (da más, es optimista).",
+   "Tiempo mejorado: <code>T_mej = T·(1−p) + T·p/k</code>."
+  ], pitfall:"No confundas “×10 más rápido” (k=10) con “acelera ×3” (A=3, la incógnita suele ser p)."},
+ {tag:"T1", t:"Rendimiento/coste y EDP", when:"Comparas dos sistemas con tiempos y, además, coste o energía.",
+  steps:[
+   "Aceleración: <code>A = T_lento / T_rápido</code> → ×100 = % más rápido.",
+   "Incremento (energía/coste): <code>mayor/menor</code> → 1.26 = consume 26% más.",
+   "Rendimiento/coste: <code>1/(T·C)</code>, mayor es mejor.",
+   "EDP: <code>E·T</code>, menor es más eficiente."
+  ]},
+ {tag:"T2", t:"Overhead y dimensionado del monitor", when:"Monitor por muestreo: cada cuánto muestrea, tamaño de registro y espacio disponible.",
+  steps:[
+   "Overhead: <code>Ov = T_ejec_monitor / intervalo_de_medida</code>.",
+   "Activaciones por periodo: <code>periodo / T_muestreo</code> (mismas unidades).",
+   "Tamaño generado: <code>nº muestras × tamaño_registro</code>.",
+   "¿Cuánto dura el espacio? <code>espacio / tamaño_por_día</code> → días.",
+   "Cuidado con unidades: 1 MB = 1024 kB."
+  ]},
+ {tag:"T2", t:"Leer la salida de top", when:"Te dan una captura de top y preguntan memoria, CPU, carga…",
+  steps:[
+   "<b>Memoria física total</b>: campo <code>av</code> (available) tras <code>Mem:</code>.",
+   "<b>% usado</b>: <code>used/av × 100</code>.",
+   "<b>Utilización CPU</b>: suma de <code>user% + system%</code> en la línea CPU states.",
+   "<b>Carga media</b>: <code>load average: 1min, 5min, 15min</code> (elige el que pidan).",
+   "<b>Evolución</b>: si 1min &gt; 5min &gt; 15min → ascendente; si baja → descendente.",
+   "<b>Memoria de un proceso</b>: columna <code>%MEM</code> × memoria total.",
+   "<b>Tiempo en ejecución</b>: columna <code>TIME</code> de esa fila."
+  ]},
+ {tag:"T3", t:"CPI, frecuencia y MIPS", when:"Programa con nº de instrucciones, % en distintos ciclos y salida de time.",
+  steps:[
+   "CPI medio: <code>Σ(%ᵢ · ciclosᵢ)</code> (p. ej. 0.75·3 + 0.25·5 = 3.5).",
+   "Tiempo de CPU: <code>user + sys</code> (¡no real!).",
+   "Frecuencia: <code>f = nº instr · CPI / T_CPU</code>.",
+   "MIPS: <code>nº instr / (T_ejec · 10⁶)</code> = <code>f / (CPI · 10⁶)</code>."
+  ], pitfall:"El tiempo de ejecución para MIPS/frecuencia es el de CPU (user+sys), no el real."},
+ {tag:"T3", t:"Elegir la media correcta", when:"Te dan varios valores y piden el promedio.",
+  steps:[
+   "¿Tiempos o porcentajes? → media <b>aritmética</b>.",
+   "¿Frecuencias/velocidades (MIPS, MFLOPS, GFLOPS)? → media <b>armónica</b>.",
+   "¿Índices normalizados a una máquina de referencia? → media <b>geométrica</b>.",
+   "Con pesos (%): usa la versión ponderada de aritmética/armónica.",
+   "Con tiempos: primero la media, luego normaliza; nunca al revés."
+  ]},
+ {tag:"T4", t:"Variables y leyes operacionales", when:"Te dan Aᵢ, Cᵢ, Bᵢ, T (o medidas en bruto) y piden U, X, S, R…",
+  steps:[
+   "Básicas: <code>Uᵢ=Bᵢ/T</code>, <code>λᵢ=Aᵢ/T</code>, <code>Xᵢ=Cᵢ/T</code>, <code>Sᵢ=Bᵢ/Cᵢ</code>.",
+   "Demanda: <code>Dᵢ=Vᵢ·Sᵢ</code>; razón de visita <code>Vᵢ=Xᵢ/X₀</code>.",
+   "Little: <code>N = X·R</code> (despeja lo que falte).",
+   "Utilización: <code>Uᵢ=Xᵢ·Sᵢ=X₀·Dᵢ</code>; flujo forzado <code>Xᵢ=X₀·Vᵢ</code>.",
+   "Interactivo: <code>R = N/X − Z</code> (Z=tiempo de reflexión)."
+  ]},
+ {tag:"T5", t:"Red de colas ABIERTA", when:"Sistema transaccional: te dan λ (o tiempo entre llegadas), Vᵢ y Sᵢ.",
+  steps:[
+   "λ = 1 / (tiempo entre llegadas).",
+   "Demandas <code>Dᵢ = Vᵢ·Sᵢ</code>. El <b>cuello de botella</b> es el de mayor Dᵢ.",
+   "Utilizaciones <code>Uᵢ = λ·Dᵢ</code> (Dᵢ en segundos).",
+   "λmax que aguanta el sistema: <code>1/D_max</code>.",
+   "Tiempo por estación: <code>Rᵢ = Sᵢ/(1−Uᵢ)</code>.",
+   "Tiempo del sistema: <code>R = Σ Vᵢ·Rᵢ</code>; trabajos <code>N = λ·R</code>.",
+   "Mínimo teórico (a baja carga): <code>R_opt = Σ Dᵢ</code>."
+  ], pitfall:"R del sistema usa Rᵢ=Sᵢ/(1−Uᵢ), no Sᵢ a secas. ΣDᵢ es solo el límite optimista."},
+ {tag:"T5", t:"Red de colas CERRADA", when:"Carga interactiva/batch: te dan N (usuarios), Z (reflexión), Vᵢ y Sᵢ.",
+  steps:[
+   "Demandas <code>Dᵢ=Vᵢ·Sᵢ</code>; <code>D=ΣDᵢ</code>; <code>D_max</code> = cuello de botella.",
+   "Punto de saturación: <code>N* = (D+Z)/D_max</code> (redondea a entero).",
+   "Si <b>N &lt; N*</b>: <code>X=N/(D+Z)</code>, <code>R≈D</code>.",
+   "Si <b>N &gt; N*</b>: <code>X=1/D_max</code>, <code>R=D_max·N − Z</code>.",
+   "Para “máx. usuarios con R≤límite”: despeja N de <code>D_max·N − Z = límite</code>."
+  ]},
+ {tag:"T6", t:"Clustering K-means + dendograma", when:"Tabla de clases con 2 métricas (p. ej. R y S); agrupar en k grupos.",
+  steps:[
+   "Cada clase es un punto (x,y). Ignora columnas irrelevantes para la distancia.",
+   "Distancia euclídea entre pares: <code>√[(x₁−x₂)²+(y₁−y₂)²]</code> (puedes omitir la raíz al comparar).",
+   "Fusiona las dos clases más cercanas; su centroide = media de sus puntos.",
+   "Recalcula distancias y repite hasta quedar con k grupos.",
+   "Dibuja el dendograma: la altura de cada unión = distancia a la que se fusionan."
+  ]},
+ {tag:"T7", t:"Predicción de la carga", when:"Serie de valores por periodo; predecir el siguiente.",
+  steps:[
+   "<b>Media móvil</b> (ventana n): media de las últimas n observaciones.",
+   "<b>Suavizado exponencial</b>: <code>Sₜ=α·Dₜ+(1−α)·Sₜ₋₁</code>, con <code>S₁=D₁</code>; la previsión = último Sₜ.",
+   "<b>Regresión</b>: <code>a=(nΣXY−ΣXΣY)/(nΣX²−(ΣX)²)</code>, <code>b=(ΣY−aΣX)/n</code>, recta <code>y=ax+b</code>.",
+   "Identifica el patrón: tendencia→regresión; estacional/cíclico→media móvil; fluctuante→suavizado."
+  ], pitfall:"No uses regresión lineal si los datos fluctúan o son estacionales: suaviza de más."}
+];
+
+const TEORIA = [
+ {t:1, q:"¿Qué dos grandes factores reales no consideran ni Amdahl ni Gustafson al acelerar un sistema k veces?",
+  a:"Ambas leyes solo tienen en cuenta la parte secuencial y la paralelizable, pero en la realidad aparecen: <b>(1) los costes de comunicación y sincronización</b> entre los procesos paralelos, que introducen retardos al coordinarse; y <b>(2) la contención por recursos compartidos</b> (memoria, buses, discos), que genera cuellos de botella cuando varios procesadores acceden a la vez. Por eso la aceleración real suele ser menor que la teórica."},
+ {t:1, q:"¿Por qué la eficiencia del paralelismo nunca es mayor que 1?",
+  a:"La eficiencia es E = A/k. En el caso ideal la aceleración crecería linealmente (A=k) y E=1, pero al añadir nodos estos deben comunicarse y sincronizarse, lo que introduce sobrecarga. Por tanto A &lt; k y E &lt; 1; como mucho, en el caso perfecto, E = 1."},
+ {t:2, q:"¿Se puede monitorizar un sistema sin generar ninguna sobrecarga? Justifícalo.",
+  a:"No. Cualquier técnica (por eventos, rastreo, muestreo o medición indirecta) consume recursos del propio sistema: CPU, memoria o almacenamiento. Ejecutar el monitor implica que el procesador dedique tiempo a recopilar y guardar datos en vez de a las tareas del sistema. Sí se puede <b>minimizar</b>: usando muestreo en lugar de rastreo, ampliando el intervalo de medida o empleando monitores hardware cuando sea posible."},
+ {t:2, q:"¿De qué dos formas se reduce la sobrecarga de un monitor software basado en muestreo?",
+  a:"<b>(1) Aumentar el intervalo de muestreo</b>: al tomar muestras con menos frecuencia se ejecuta menos código del monitor. <b>(2) Reducir la información recogida en cada muestra</b>: si solo se extraen los datos imprescindibles, cada activación tarda menos y la perturbación es menor."},
+ {t:3, q:"¿Por qué la frecuencia del procesador no es un indicador totalmente fiable del rendimiento?",
+  a:"Porque no tiene en cuenta el <b>número de instrucciones</b> de un programa ni los <b>ciclos por instrucción (CPI)</b>. Dos procesadores con la misma frecuencia pueden rendir muy distinto si uno ejecuta menos instrucciones o tiene menor CPI. Sí es orientativa en igualdad de condiciones (mismo juego de instrucciones, arquitectura y programa)."},
+ {t:3, q:"¿Por qué los fabricantes de benchmarks prefieren la media geométrica?",
+  a:"Porque mantiene un <b>orden consistente</b> entre sistemas independientemente de qué máquina se tome como referencia al normalizar los tiempos. Además, está menos influida por valores extremos que la aritmética y preserva proporcionalmente las diferencias de rendimiento, sin favorecer artificialmente a ninguna máquina."},
+ {t:4, q:"¿De qué dependen las leyes operacionales y de qué NO dependen?",
+  a:"<b>Dependen</b> únicamente de magnitudes medibles del sistema: número de trabajos, productividad, tiempo de servicio o respuesta, utilización… es decir, de observaciones reales. <b>No dependen</b> de supuestos estadísticos sobre las distribuciones del tiempo de servicio o de llegadas: son válidas aunque el sistema no siga distribuciones exponenciales o normales."},
+ {t:4, q:"Dos colas con igual frecuencia de llegada, igual tiempo de servicio y servidor idéntico pueden tener distinta longitud media de cola. ¿Por qué?",
+  a:"Por la <b>varianza</b> de las distribuciones de los tiempos de llegada y de servicio. Si una cola tiene llegadas más regulares y la otra más aleatorias o en ráfagas (mayor varianza), la segunda acumula más trabajos. Lo mismo ocurre con la variabilidad del tiempo de servicio: a mayor variabilidad, mayor longitud media de cola."},
+ {t:5, q:"¿Qué es el punto de saturación en un sistema cerrado y qué ocurre al alcanzarlo?",
+  a:"Es el número de trabajos N* a partir del cual el dispositivo cuello de botella queda totalmente ocupado (utilización ≈ 100%). Al superarlo, añadir más trabajos <b>no aumenta la productividad X</b> del sistema; solo <b>aumenta el tiempo de respuesta R</b>, porque se forman colas en el cuello de botella."},
+ {t:5, q:"Si el punto de saturación pasa de N* a otro N*' &gt; N*, ¿qué significa?",
+  a:"Que el sistema aguanta más trabajos antes de saturarse. Puede deberse a: <b>(1)</b> se ha reducido la demanda del cuello de botella (menor tiempo de servicio o menos visitas), por lo que tarda más en saturarse; o <b>(2)</b> el cuello de botella ha cambiado a otro dispositivo menos restrictivo (con menor demanda). En ambos casos, mayor capacidad en paralelo antes de la máxima productividad."},
+ {t:6, q:"¿Qué es un dendograma y para qué sirve?",
+  a:"Es la representación visual del agrupamiento jerárquico que muestra cómo se van fusionando los grupos (clusters) en función de su similitud. Sirve para <b>visualizar la estructura</b> de los datos y <b>decidir cuántos grupos</b> son apropiados, observando a qué altura se unen los elementos, e interpretar qué componentes están más próximos."},
+ {t:6, q:"¿Es necesario usar todas las dimensiones (parámetros) para hacer el clustering?",
+  a:"No. Se deben <b>eliminar los parámetros que no aportan</b>: los que no tienen impacto en el rendimiento o los que apenas presentan varianza. El método consiste en rehacer el agrupamiento con un parámetro menos y, si los grupos casi no cambian, descartar ese parámetro. Así se trabaja solo con las dimensiones relevantes."},
+ {t:6, q:"Justifica la relación entre monitorización, caracterización de la carga y modelado del sistema.",
+  a:"Forman una cadena de evaluación del rendimiento: la <b>monitorización</b> aporta datos reales del sistema (tiempos de servicio, utilización, llegadas…); la <b>caracterización de la carga</b> usa esos datos para resumir y modelar la carga en componentes, parámetros y clases (medias o clustering); y el <b>modelado</b> construye con esa carga un modelo representativo (red de colas) que permite simular o calcular el rendimiento bajo distintas condiciones. La monitorización alimenta la caracterización, y esta es la base del modelado."},
+ {t:7, q:"¿Cuándo NO emplearías regresión lineal para predecir el rendimiento?",
+  a:"Cuando los datos <b>no siguen una tendencia lineal</b>: presentan fluctuaciones, estacionalidad o comportamientos no lineales. Tampoco si hay <b>cambios bruscos recientes</b> (p. ej. una actualización que altera el patrón de uso) o si los datos tienen <b>mucha variabilidad o ruido</b>, porque la regresión suaviza y daría predicciones imprecisas."},
+ {t:7, q:"Si la carga fluctúa estacionalmente, ¿qué técnica de predicción se ajustaría mejor?",
+  a:"La de <b>medias móviles</b>, que se adapta bien a datos casi estacionarios o con ciclos estables a corto plazo. Para capturar la estacionalidad debería usarse una <b>media móvil estacional</b>: promediando las observaciones del mismo punto dentro del ciclo (p. ej. semanas equivalentes de distintos meses)."},
+ {t:7, q:"¿Qué es la autosimilitud (self-similarity) de la carga y supone un problema para predecirla?",
+  a:"Es la propiedad por la que la carga presenta el mismo aspecto estadístico (ráfagas/picos) a distintas escalas de tiempo: ampliando o reduciendo la ventana de observación, el patrón sigue siendo irregular. <b>Sí supone un problema</b>: los modelos que asumen que al promediar la carga se suaviza <b>subestiman las ráfagas y los picos</b>, por lo que infradimensionan la capacidad necesaria y dan predicciones poco fiables en los momentos de mayor demanda."}
+];
+
+const state = { done:new Set(), quiz:{order:[...QUIZ.keys()], answered:{}, correct:0, filter:'all'} };
+function saveState(){ try{ localStorage.setItem('acsi_progress', JSON.stringify({done:[...state.done], answered:state.quiz.answered, correct:state.quiz.correct})); }catch(e){} }
+function loadState(){ try{ const r=localStorage.getItem('acsi_progress'); if(!r)return; const d=JSON.parse(r); state.done=new Set(d.done||[]); state.quiz.answered=d.answered||{}; state.quiz.correct=d.correct||0; }catch(e){} }
+loadState();
 
 /* ----------------- NAV ----------------- */
-document.querySelectorAll('#nav button').forEach(b=>{
-  b.onclick=()=>{
-    document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-    document.getElementById(b.dataset.v).classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
-  };
-});
+function goView(v){
+  document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('active', x.dataset.v===v));
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('active', s.id===v));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('#nav button').forEach(b=>{ b.onclick=()=>goView(b.dataset.v); });
+document.querySelectorAll('[data-go]').forEach(a=>{ a.onclick=(e)=>{e.preventDefault();goView(a.dataset.go);}; });
 
 /* ----------------- MONITOR ----------------- */
 function renderMeters(){
@@ -568,9 +850,10 @@ function renderMeters(){
 
 /* ----------------- TEMARIO ----------------- */
 function renderTemas(){
-  const c=document.getElementById('temas');
+  const c=document.getElementById('temas'); c.innerHTML='';
   TEMAS.forEach(t=>{
-    const el=document.createElement('div'); el.className='tema';
+    const isDone=state.done.has(t.n);
+    const el=document.createElement('div'); el.className='tema'+(isDone?' done':'');
     let inner = t.body.map(([h,b,extra])=>`<h4>${h}</h4><p>${b}</p>${extra?`<p>${extra}</p>`:''}`).join('');
     el.innerHTML=`
       <div class="head">
@@ -579,15 +862,47 @@ function renderTemas(){
         <div class="chev">▸</div>
       </div>
       <div class="tbody">${inner}
-        <button class="markbtn">marcar como repasado</button>
+        <button class="markbtn">${isDone?'✓ repasado':'marcar como repasado'}</button>
       </div>`;
     el.querySelector('.head').onclick=(e)=>{ if(e.target.classList.contains('markbtn'))return; el.classList.toggle('open'); };
     const mb=el.querySelector('.markbtn');
     mb.onclick=()=>{
       if(state.done.has(t.n)){state.done.delete(t.n);el.classList.remove('done');mb.textContent='marcar como repasado';}
       else{state.done.add(t.n);el.classList.add('done');mb.textContent='✓ repasado';}
-      renderMeters();
+      saveState(); renderMeters();
     };
+    c.appendChild(el);
+  });
+}
+
+/* ----------------- METODO ----------------- */
+function renderMetodo(){
+  const c=document.getElementById('metCont'); c.innerHTML='';
+  METODO.forEach(m=>{
+    const el=document.createElement('div'); el.className='met';
+    const steps=m.steps.map(s=>`<li>${s}</li>`).join('');
+    el.innerHTML=`
+      <div class="mh"><span class="mtag">${m.tag}</span><span class="mt">${m.t}</span><span class="mchev">▸</span></div>
+      <div class="mbody">
+        <p class="when"><b>¿Cuándo?</b> ${m.when}</p>
+        <ol class="recipe">${steps}</ol>
+        ${m.pitfall?`<div class="pitfall"><b>Ojo:</b> ${m.pitfall}</div>`:''}
+      </div>`;
+    el.querySelector('.mh').onclick=()=>el.classList.toggle('open');
+    c.appendChild(el);
+  });
+}
+
+/* ----------------- TEORIA ----------------- */
+function renderTeoria(){
+  const c=document.getElementById('teoCont'); c.innerHTML='';
+  TEORIA.forEach(x=>{
+    const el=document.createElement('div'); el.className='ex';
+    el.innerHTML=`
+      <div class="q"><span class="tag">T${x.t}</span><span class="qt">${x.q}</span><button class="solvebtn">ver respuesta ▾</button></div>
+      <div class="sol"><div class="step"><div class="lbl">respuesta modelo</div><p style="margin:6px 0;font-size:.93rem">${x.a}</p></div></div>`;
+    const open=()=>{ el.classList.toggle('open'); el.querySelector('.solvebtn').textContent = el.classList.contains('open')?'ocultar ▴':'ver respuesta ▾'; };
+    el.querySelector('.q').onclick=open;
     c.appendChild(el);
   });
 }
@@ -601,7 +916,7 @@ function renderFormulas(){
     const grid=document.createElement('div'); grid.className='fgrid';
     g.items.forEach(f=>{
       const card=document.createElement('div'); card.className='fcard';
-      card.innerHTML=`<div class="name">${f.name}</div><div class="eq">${f.eq}</div>${f.note?`<div class="note">${f.note}</div>`:''}`;
+      card.innerHTML=`<div class="name">${f.n}</div><div class="eq">${f.eq}</div>${f.note?`<div class="note">${f.note}</div>`:''}`;
       grid.appendChild(card);
     });
     sec.appendChild(grid); c.appendChild(sec);
@@ -625,21 +940,44 @@ function renderEjercicios(){
 }
 
 /* ----------------- QUIZ ----------------- */
+function renderFilters(){
+  const f=document.getElementById('qFilters'); f.innerHTML='';
+  const mk=(label,val,cls='')=>{ const b=document.createElement('button'); b.className='chip '+cls+(state.quiz.filter===val?' on':''); b.textContent=label; b.onclick=()=>{state.quiz.filter=val;renderFilters();renderQuiz();}; return b; };
+  f.appendChild(mk('todos','all'));
+  for(let t=1;t<=7;t++) f.appendChild(mk('T'+t,t));
+  f.appendChild(mk('repasar fallos','fail','fail'));
+}
+function visibleOrder(){
+  return state.quiz.order.filter(idx=>{
+    if(state.quiz.filter==='all') return true;
+    if(state.quiz.filter==='fail') return state.quiz.answered[idx]!==undefined && state.quiz.answered[idx]!==QUIZ[idx].a;
+    return QUIZ[idx].t===state.quiz.filter;
+  });
+}
 function renderQuiz(){
   const c=document.getElementById('quizCont'); c.innerHTML='';
   document.getElementById('qTotal').textContent=QUIZ.length;
-  state.quiz.order.forEach((idx,pos)=>{
+  const order=visibleOrder();
+  if(order.length===0){ c.innerHTML='<div class="qcard" style="text-align:center;color:var(--ink-soft);font-family:var(--mono);font-size:.85rem">Sin preguntas en este filtro. ¡No tienes fallos pendientes aquí!</div>'; updateScore(); return; }
+  order.forEach((idx,pos)=>{
     const Q=QUIZ[idx];
     const card=document.createElement('div'); card.className='qcard';
     card.innerHTML=`<div class="qh"><span class="tg">T${Q.t}</span><span class="qx">${pos+1}. ${Q.q}</span></div>`;
     const letters=['A','B','C','D'];
+    const ans=state.quiz.answered[idx];
     Q.o.forEach((opt,i)=>{
       const b=document.createElement('button'); b.className='opt';
       b.innerHTML=`<span class="mk">${letters[i]}</span>${opt}`;
-      b.onclick=()=>answer(idx,i,card,b);
+      if(ans!==undefined){
+        b.classList.add('disabled');
+        if(i===Q.a) b.classList.add('correct');
+        if(i===ans && ans!==Q.a) b.classList.add('wrong');
+      } else {
+        b.onclick=()=>answer(idx,i,card,b);
+      }
       card.appendChild(b);
     });
-    const ex=document.createElement('div'); ex.className='expl'; ex.textContent='💡 '+Q.e;
+    const ex=document.createElement('div'); ex.className='expl'+(ans!==undefined?' show':''); ex.textContent='💡 '+Q.e;
     card.appendChild(ex);
     c.appendChild(card);
   });
@@ -656,7 +994,7 @@ function answer(idx,choice,card,btn){
     if(i===choice && choice!==Q.a) o.classList.add('wrong');
   });
   card.querySelector('.expl').classList.add('show');
-  updateScore(); renderMeters();
+  saveState(); updateScore(); renderMeters();
 }
 function updateScore(){
   const done=Object.keys(state.quiz.answered).length;
@@ -669,11 +1007,176 @@ function updateScore(){
     meta.textContent = `completado · ${p}% ${p>=80?'— ¡listo!':p>=60?'— vas bien, repasa fallos':'— a repasar el temario'}`;
   }
 }
-document.getElementById('qReset').onclick=()=>{ state.quiz.answered={}; state.quiz.correct=0; renderQuiz(); renderMeters(); window.scrollTo({top:0,behavior:'smooth'}); };
-document.getElementById('qShuffle').onclick=()=>{ state.quiz.answered={}; state.quiz.correct=0; for(let i=state.quiz.order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.quiz.order[i],state.quiz.order[j]]=[state.quiz.order[j],state.quiz.order[i]];} renderQuiz(); renderMeters(); window.scrollTo({top:0,behavior:'smooth'}); };
+document.getElementById('qReset').onclick=()=>{ state.quiz.answered={}; state.quiz.correct=0; state.quiz.filter='all'; saveState(); renderFilters(); renderQuiz(); renderMeters(); window.scrollTo({top:0,behavior:'smooth'}); };
+document.getElementById('qShuffle').onclick=()=>{ state.quiz.answered={}; state.quiz.correct=0; state.quiz.filter='all'; for(let i=state.quiz.order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.quiz.order[i],state.quiz.order[j]]=[state.quiz.order[j],state.quiz.order[i]];} saveState(); renderFilters(); renderQuiz(); renderMeters(); window.scrollTo({top:0,behavior:'smooth'}); };
+
+/* ----------------- PRACTICA: helpers ----------------- */
+const rand=a=>a[Math.floor(Math.random()*a.length)];
+const pnum=s=>parseFloat(String(s).replace(',','.').trim());
+const close=(u,a,t)=>!isNaN(u)&&(Math.abs(u-a)<=t || (a!==0 && Math.abs(u-a)/Math.abs(a)<=0.02));
+
+/* ----------------- DRILLS ----------------- */
+const DRILLS=[
+ {id:'amdahl',label:'Amdahl',gen(){
+   const p=rand([0.5,0.6,0.7,0.75,0.8,0.9]), k=rand([2,4,8,10,16,32]);
+   const A=1/((1-p)+p/k), Am=1/(1-p);
+   return{prompt:`Se acelera el <b>${Math.round(p*100)}%</b> del sistema <b>${k}×</b>. Calcula la aceleración global A (Amdahl) y el límite máximo A_max (k→∞).`,
+    fields:[{id:'A',label:'A global',answer:A,tol:0.05},{id:'Am',label:'A_max',answer:Am,tol:0.05}],
+    sol:`A = 1/((1−p)+p/k) = 1/((1−${p})+${p}/${k}) = <b>${A.toFixed(3)}</b><br>A_max = 1/(1−p) = 1/${(1-p).toFixed(2)} = <b>${Am.toFixed(3)}</b>`};
+ }},
+ {id:'cpi',label:'CPI · MIPS',gen(){
+   const base=rand([80,120,150,200]), instr=base*1e8, pct=rand([0.6,0.7,0.75,0.8]),
+    c1=rand([2,3]), c2=rand([4,5]), user=rand([20,30,34,40,50]), sys=rand([1,2,3,5]);
+   const cpi=pct*c1+(1-pct)*c2, tcpu=user+sys, f=instr*cpi/tcpu, mips=instr/(tcpu*1e6);
+   return{prompt:`Un programa ejecuta <b>${base}·10⁸ instrucciones</b>: el ${Math.round(pct*100)}% en ${c1} ciclos y el resto en ${c2} ciclos. <code>time</code> da user=${user}s, sys=${sys}s. Calcula CPI, frecuencia (GHz) y MIPS.`,
+    fields:[{id:'cpi',label:'CPI',answer:cpi,tol:0.01},{id:'f',label:'frecuencia',unit:'GHz',answer:f/1e9,tol:0.05},{id:'mips',label:'MIPS',answer:mips,tol:1}],
+    sol:`CPI = ${pct}·${c1} + ${(1-pct).toFixed(2)}·${c2} = <b>${cpi.toFixed(2)}</b><br>T_CPU = user+sys = ${tcpu} s<br>f = instr·CPI/T_CPU = <b>${(f/1e9).toFixed(3)} GHz</b><br>MIPS = instr/(T_CPU·10⁶) = <b>${mips.toFixed(2)}</b>`};
+ }},
+ {id:'little',label:'Little (T4)',gen(){
+   const ejec=rand([18000,24000,30000,36000]), h=rand([1,2]), tiempo=h*3600, N=rand([8,10,12,15,20]);
+   const X=ejec/tiempo, R=N/X;
+   return{prompt:`Una máquina virtual realiza <b>${ejec} ejecuciones</b> en <b>${h} h</b>. El nº medio de usuarios activos es <b>${N}</b>. Calcula la productividad X (ejec/s) y el tiempo de respuesta medio R (s).`,
+    fields:[{id:'X',label:'X',unit:'ejec/s',answer:X,tol:0.05},{id:'R',label:'R',unit:'s',answer:R,tol:0.05}],
+    sol:`X = ${ejec}/${tiempo} = <b>${X.toFixed(3)} ejec/s</b><br>Little: R = N/X = ${N}/${X.toFixed(3)} = <b>${R.toFixed(3)} s</b>`};
+ }},
+ {id:'abierta',label:'Colas abierta (T5)',gen(){
+   const dev=[{n:'CPU',V:rand([10,12,15]),S:rand([1,2])},{n:'Disco A',V:rand([3,4,5]),S:rand([4,5,6])},{n:'Disco B',V:rand([8,10,12]),S:rand([4,5])}];
+   const tll=rand([0.1,0.2]), lam=Math.round(1/tll);
+   dev.forEach(d=>d.D=d.V*d.S);
+   const Dmax=Math.max(...dev.map(d=>d.D)), cuello=dev.find(d=>d.D===Dmax).n, lammax=1000/Dmax;
+   return{prompt:`Servidor central, tiempo entre llegadas <b>${tll} s</b>. Calcula la demanda máxima D_max (ms) y la tasa de llegadas máxima λmax (trab/s) que soporta el sistema.<table class="dtable"><tr><th>Disp.</th><th>V</th><th>S (ms)</th></tr>${dev.map(d=>`<tr><td>${d.n}</td><td>${d.V}</td><td>${d.S}</td></tr>`).join('')}</table>`,
+    fields:[{id:'dmax',label:'D_max',unit:'ms',answer:Dmax,tol:0.5},{id:'lam',label:'λmax',unit:'trab/s',answer:lammax,tol:0.5}],
+    sol:`Demandas Dᵢ = Vᵢ·Sᵢ: ${dev.map(d=>`${d.n}=${d.D}ms`).join(' · ')}<br>Cuello de botella: <b>${cuello}</b> (D_max=${Dmax} ms)<br>λmax = 1/D_max = 1000/${Dmax} = <b>${lammax.toFixed(2)} trab/s</b>`};
+ }},
+ {id:'cerrada',label:'Colas cerrada N* (T5)',gen(){
+   const dev=[{n:'CPU',D:rand([1,2])},{n:'Disco A',D:rand([8,10,12])},{n:'Disco B',D:rand([4,5,6])}];
+   const Zs=rand([1,2,3]), Z=Zs*1000, Dt=dev.reduce((a,d)=>a+d.D,0), Dmax=Math.max(...dev.map(d=>d.D)), Ns=(Dt+Z)/Dmax;
+   return{prompt:`Sistema cerrado con tiempo de reflexión <b>Z=${Zs} s</b>. Calcula el punto teórico de saturación N* (nº de usuarios, entero).<table class="dtable"><tr><th>Disp.</th><th>D (ms)</th></tr>${dev.map(d=>`<tr><td>${d.n}</td><td>${d.D}</td></tr>`).join('')}</table>`,
+    fields:[{id:'ns',label:'N*',unit:'usuarios',answer:Ns,tol:1}],
+    sol:`D = ΣDᵢ = ${Dt} ms · D_max = ${Dmax} ms · Z = ${Z} ms<br>N* = (D+Z)/D_max = (${Dt}+${Z})/${Dmax} = ${Ns.toFixed(2)} → <b>${Math.ceil(Ns)} usuarios</b>`};
+ }},
+ {id:'movil',label:'Media móvil (T7)',gen(){
+   const n=rand([3,4]), k=rand([6,7,8]), pool=[348,456,478,506,549,645,673,678,700,743];
+   const ser=Array.from({length:k},()=>rand(pool)), last=ser.slice(-n), m=last.reduce((a,b)=>a+b,0)/n;
+   return{prompt:`Serie semanal: <b>${ser.join(', ')}</b>. Predice la siguiente con media móvil de ventana <b>${n}</b>.`,
+    fields:[{id:'m',label:'previsión',answer:m,tol:0.5}],
+    sol:`Últimos ${n}: ${last.join(' + ')} = ${last.reduce((a,b)=>a+b,0)}<br>M = ${last.reduce((a,b)=>a+b,0)}/${n} = <b>${m.toFixed(2)}</b>`};
+ }},
+ {id:'suav',label:'Suavizado exp. (T7)',gen(){
+   const al=rand([0.3,0.5,0.7]), k=rand([5,6]), pool=[348,456,478,506,645,673,700,743];
+   const ser=Array.from({length:k},()=>rand(pool));
+   let S=ser[0]; const tr=[`S₁=${S}`];
+   for(let i=1;i<k;i++){S=al*ser[i]+(1-al)*S; tr.push(`S${i+1}=${al}·${ser[i]}+${(1-al).toFixed(1)}·prev=${S.toFixed(2)}`);}
+   return{prompt:`Serie: <b>${ser.join(', ')}</b>. Predice la siguiente con suavizado exponencial α=<b>${al}</b> (S₁=primer dato).`,
+    fields:[{id:'s',label:'previsión',answer:S,tol:1}],
+    sol:tr.join('<br>')+`<br>Previsión = <b>${S.toFixed(2)}</b>`};
+ }}
+];
+let curDrill=null;
+function renderDrillChips(){
+  const c=document.getElementById('drillChips'); c.innerHTML='';
+  DRILLS.forEach(d=>{ const b=document.createElement('button'); b.className='chip'+(curDrill&&curDrill.id===d.id?' on':''); b.textContent=d.label; b.onclick=()=>newDrill(d.id); c.appendChild(b); });
+}
+function newDrill(id){ const g=DRILLS.find(d=>d.id===id); curDrill={id,data:g.gen()}; renderDrillChips(); renderDrill(); }
+function renderDrill(){
+  const a=document.getElementById('drillArea'); if(!curDrill){a.innerHTML='<div class="dcard" style="color:var(--ink-soft);font-family:var(--mono);font-size:.86rem">Elige un tipo de ejercicio arriba para empezar.</div>';return;}
+  const d=curDrill.data;
+  const fields=d.fields.map(f=>`<div class="dfield" data-f="${f.id}"><label>${f.label}${f.unit?' ('+f.unit+')':''}</label><div class="inp"><input type="text" inputmode="decimal" autocomplete="off"><span class="u fb"></span></div></div>`).join('');
+  a.innerHTML=`<div class="dcard">
+    <div class="dprompt">${d.prompt}</div>
+    <div class="dfields">${fields}</div>
+    <div class="dbtns"><button class="btn" id="dCheck">comprobar</button><button class="btn ghost" id="dSol">ver solución</button><button class="chip" id="dNew">otro ejercicio</button></div>
+    <div class="dsol" id="dSolBox">${d.sol}</div>
+  </div>`;
+  a.querySelector('#dCheck').onclick=checkDrill;
+  a.querySelector('#dNew').onclick=()=>newDrill(curDrill.id);
+  a.querySelector('#dSol').onclick=()=>{document.getElementById('dSolBox').classList.add('show');};
+  a.querySelectorAll('input').forEach(inp=>inp.addEventListener('keydown',e=>{if(e.key==='Enter')checkDrill();}));
+}
+function checkDrill(){
+  const d=curDrill.data; let allok=true;
+  d.fields.forEach(f=>{
+    const wrap=document.querySelector(`.dfield[data-f="${f.id}"]`); const inp=wrap.querySelector('input'); const fb=wrap.querySelector('.fb');
+    const u=pnum(inp.value); wrap.classList.remove('ok','no');
+    if(close(u,f.answer,f.tol)){wrap.classList.add('ok');fb.textContent='✓';} else {wrap.classList.add('no');fb.textContent='✗';allok=false;}
+  });
+  if(allok) document.getElementById('dSolBox').classList.add('show');
+}
+
+/* ----------------- SIMULACRO ----------------- */
+const SIMULACRO=[
+ {t:1,n:1,pts:"1 pt",q:"Dos sistemas A y B ejecutan el programa FLASH. A tarda 4 s y B 5 s. A consume 1200 KWh y B 950 KWh. Calcula: a) el EDP de ambos (en Ws²-equivalente); b) la aceleración de un sistema sobre el otro; c) el incremento de energía consumida de uno sobre el otro.",
+  sol:`<div class="calc">a) EDP = E·T → EDP_A = 1200·4 = <b>4800</b> · EDP_B = 950·5 = <b>4750</b> → B algo más eficiente<br>b) A es más rápido: A = T_B/T_A = 5/4 = <b>1.25</b> → A es 25% más rápido<br>c) ΔE = E_A/E_B = 1200/950 = <b>1.263</b> → A consume 26% más</div>`},
+ {t:1,n:2,pts:"0,5 pt",q:"¿Cuál es la diferencia en la escalabilidad de la aceleración, con una mejora sobre un recurso, según las leyes de Amdahl y Gustafson?",
+  sol:`<div class="sc">Amdahl supone <b>tamaño de problema fijo</b>: la aceleración está limitada por la parte secuencial (A_max = 1/(1−p)), así que añadir procesadores da rendimientos decrecientes. Gustafson supone que al añadir procesadores <b>el problema crece</b> (A = (1−p)+p·k), por lo que la aceleración escala linealmente con k. Amdahl es pesimista (mejora acotada), Gustafson optimista (mejora escalable).</div>`},
+ {t:2,n:3,pts:"0,5 pt",q:"Tras ejecutar $top en un monoprocesador Linux: a) ¿cuánta memoria física tiene (en GB)? b) ¿qué % está usada? c) ¿utilización media de CPU? d) ¿carga media de los últimos 15 min? e) ¿la carga es ascendente o descendente?",
+  sol:`<div class="sc">Cómo se lee (con los valores del ejemplo del enunciado):</div><div class="calc">a) Memoria total = campo <b>av</b> tras "Mem:" (p. ej. 256464 kB ≈ 0.24 GB)<br>b) % usado = used/av·100 (p. ej. 251672/256464 ≈ <b>98%</b>)<br>c) Utilización CPU = user% + system% (p. ej. 82.5+0.5 = <b>83%</b>)<br>d) Carga 15 min = tercer valor de "load average" (p. ej. <b>0.28</b>)<br>e) load average 2.46, 0.80, 0.28 → 1min&lt;5min&lt;15min decrece → <b>descendente</b></div>`},
+ {t:2,n:4,pts:"0,5 pt",q:"¿Se puede monitorizar un sistema basado en eventos? ¿Cómo se calcularía la sobrecarga del monitor en este tipo de sistemas? Justifica.",
+  sol:`<div class="sc">Sí: se instrumenta el sistema para recoger información cada vez que ocurre un evento de interés. Siempre habrá sobrecarga, porque ejecutar el código del monitor consume recursos. Se estima como la fracción de tiempo dedicada a monitorizar: <b>Ov = T_ejecución_del_monitor / intervalo_de_medida</b>. En sistemas por eventos depende de la frecuencia de los eventos: a más eventos, más activaciones del monitor y mayor sobrecarga.</div>`},
+ {t:3,n:5,pts:"1 pt",q:"Un programa de cálculo numérico se ejecuta en 2 minutos. Operaciones en coma flotante: ADD 78·10⁶ (norm. 1), SQRT 29·10⁶ (norm. 3), COS 13·10⁶ (norm. 8), EXP 42·10⁶ (norm. 12). ¿Rendimiento en MFLOPS? ¿Y en MFLOPS normalizados?",
+  sol:`<div class="calc">T = 2 min = 120 s<br>Total ops = (78+29+13+42)·10⁶ = 162·10⁶<br>MFLOPS = 162·10⁶/(120·10⁶) = <b>1.35 MFLOPS</b><br>Ops normalizadas = 78·1+29·3+13·8+42·12 = 78+87+104+504 = 773·10⁶<br>MFLOPS norm = 773/120 = <b>6.44 MFLOPS</b></div>`},
+ {t:3,n:6,pts:"0,5 pt",q:"Justifica por qué la velocidad del procesador (frecuencia de reloj) no es un indicador totalmente fiable del rendimiento, aunque sí orientativo.",
+  sol:`<div class="sc">No considera el <b>número de instrucciones</b> ni los <b>ciclos por instrucción (CPI)</b>. Dos CPU con igual frecuencia rinden distinto si una ejecuta menos instrucciones o tiene menor CPI. Es orientativo solo en igualdad de condiciones (mismo juego de instrucciones, arquitectura y programa).</div>`},
+ {t:4,n:7,pts:"1 pt",q:"Sistema con un procesador y tres discos (modelo de servidor central) con 100 usuarios conectados y reflexión Z=5 s. CPU (V=9, S=0,001 s), Disco1 (V=3, S=0,025), Disco2 (V=4, S=0,030), Disco3 (V=1, S=0,010). a) demandas de servicio; b) si X=2 trab/s, nº medio de trabajos en reflexión; c) tiempo de respuesta del sistema; d) trabajos activos; e) productividad y utilización de cada dispositivo.",
+  sol:`<div class="calc">a) Dᵢ=Vᵢ·Sᵢ → CPU=0.009 · D1=0.075 · D2=<b>0.120 (cuello)</b> · D3=0.010 s<br>b) Nr = X·Z = 2·5 = <b>10 trabajos</b><br>c) R = N/X − Z = 100/2 − 5 = <b>45 s</b><br>d) Na = N − Nr = 100 − 10 = <b>90 trabajos</b><br>e) Xᵢ=X·Vᵢ ; Uᵢ=Xᵢ·Sᵢ:<br>CPU X=18 U=0.018 · D1 X=6 U=0.15 · D2 X=8 U=0.24 · D3 X=2 U=0.02</div>`},
+ {t:4,n:8,pts:"0,5 pt",q:"¿De qué dependen las leyes operacionales que usamos en los cálculos de colas? ¿Y de qué no dependen?",
+  sol:`<div class="sc">Dependen de magnitudes <b>medibles</b> del sistema (nº de trabajos, productividad, tiempos de servicio/respuesta, utilización): observaciones reales. <b>No dependen</b> de supuestos estadísticos sobre las distribuciones del tiempo de servicio o entre llegadas; son válidas aunque no sean exponenciales.</div>`},
+ {t:5,n:9,pts:"1 pt",q:"Sistema de una intranet con un procesador y dos discos, demandas de servicio: CPU = 1 ms, Disco A = 12 ms, Disco B = 5 ms, con reflexión Z=2 s. a) asíntotas optimistas del tiempo de respuesta y de la productividad; b) punto teórico de saturación; c) máximo nº de trabajos para un tiempo de respuesta ≤ 15 s.",
+  sol:`<div class="calc">D = 1+12+5 = 18 ms · D_max = 12 ms (Disco A)<br>a) R_opt = ΣDᵢ = <b>18 ms</b> · X_opt = 1/D_max = 1/12 = <b>83.33 trab/s</b><br>b) N* = (D+Z)/D_max = (18+2000)/12 = 168.17 → <b>169 usuarios</b><br>c) R(N)=D_max·N − Z = 15000 → 12N = 17000 → N = <b>1416 trabajos</b></div>`},
+ {t:5,n:10,pts:"0,5 pt",q:"¿Qué es el punto de saturación en un sistema cerrado y qué ocurre cuando se alcanza?",
+  sol:`<div class="sc">Es el nº de trabajos N* a partir del cual el cuello de botella queda al 100% de utilización. Al superarlo, añadir trabajos <b>no aumenta la productividad X</b>; solo crece el <b>tiempo de respuesta R</b> por las colas en el cuello de botella.</div>`},
+ {t:6,n:11,pts:"1 pt",q:"Tabla de R y S medidos en más de 200 subsistemas de disco con distinta caché. Agrupa las 7 clases en 3 grupos con K-means y distancia euclídea, y dibuja el dendograma. (La columna de tamaño de caché es irrelevante para la distancia.)",
+  sol:`<div class="sc">Cada clase es un punto (R, S). Se parte de k=n, se calculan centroides y distancias euclídeas, y se fusionan las dos más cercanas hasta quedar en 3 grupos.</div><div class="calc">Grupo 1 → {clase 1} (R muy alto, aislada)<br>Grupo 2 → {clases 2, 3}<br>Grupo 3 → {clases 4, 5, 6, 7}<br>Dendograma: tres ramas; la clase 1 se une la última y a mayor altura.</div>`},
+ {t:6,n:12,pts:"0,5 pt",q:"¿Es necesario utilizar todas las dimensiones (parámetros) de una carga monitorizada para realizar la caracterización? Justifica.",
+  sol:`<div class="sc">No. Se eliminan los parámetros que no aportan: los que no tienen impacto en el rendimiento o apenas tienen varianza. Método: rehacer el agrupamiento con un parámetro menos; si los grupos casi no cambian, se descarta. Así se trabaja solo con las dimensiones relevantes.</div>`},
+ {t:7,n:13,pts:"1 pt",q:"Transacciones semanales (millones): 700, 645, 549, 743, 348, 456, 478, 506, 678, 673. Predice la semana 11 con: medias móviles (ventana 4), suavizado exponencial α=50%, y regresión lineal (a=608,07; b=−5,539). ¿Cuál predice mejor? Justifica.",
+  sol:`<div class="calc">Media móvil (4): (478+506+678+673)/4 = <b>583.75</b><br>Suavizado exp. (α=0.5): … S10 = <b>≈629.39</b><br>Regresión: y = −5.539·11 + 608.07 = <b>547.14</b></div><div class="sc">Si los datos fluctúan sin tendencia clara, la regresión suaviza demasiado; media móvil/suavizado responden mejor a las fluctuaciones recientes, así que serían más fiables aquí.</div>`},
+ {t:7,n:14,pts:"0,5 pt",q:"¿Qué quiere decir que la carga tiene un patrón de autosimilitud (self-similarity)? ¿Supone algún problema añadido a la hora de predecir la carga futura? Justifica.",
+  sol:`<div class="sc">Significa que la carga presenta el mismo aspecto estadístico (ráfagas/picos) a distintas escalas de tiempo: al ampliar o reducir la ventana, sigue siendo irregular. <b>Sí es un problema</b>: los modelos que asumen que al promediar la carga se suaviza subestiman las ráfagas y los picos, infradimensionan la capacidad necesaria y fallan en los momentos de máxima demanda.</div>`}
+];
+function renderSim(){
+  const c=document.getElementById('simCont'); c.innerHTML='';
+  let curTema=0;
+  SIMULACRO.forEach(s=>{
+    if(s.t!==curTema){ curTema=s.t; const h=document.createElement('div'); h.className='simtema'; h.textContent='Tema '+s.t; c.appendChild(h); }
+    const el=document.createElement('div'); el.className='simq';
+    el.innerHTML=`<div class="sh"><span class="num">${s.n}</span><span class="stx">${s.q}</span><span class="pts">${s.pts}</span></div><div class="ss"><div class="lbl">solución</div>${s.sol}</div>`;
+    el.querySelector('.sh').onclick=()=>el.classList.toggle('open');
+    c.appendChild(el);
+  });
+}
+let simAllShown=false;
+document.getElementById('simAll').onclick=()=>{
+  simAllShown=!simAllShown;
+  document.querySelectorAll('#simCont .simq').forEach(q=>q.classList.toggle('open',simAllShown));
+  document.getElementById('simAll').textContent=simAllShown?'ocultar soluciones':'mostrar soluciones';
+};
+
+/* ----------------- TIMER ----------------- */
+let simSecs=3*3600, simTick=null;
+function fmt(s){const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),x=s%60;return h+':'+String(m).padStart(2,'0')+':'+String(x).padStart(2,'0');}
+function paintTimer(){const t=document.getElementById('timer');t.textContent=fmt(simSecs);t.classList.toggle('low',simSecs<=600&&simSecs>0);t.classList.toggle('zero',simSecs===0);}
+document.getElementById('simStart').onclick=()=>{
+  const b=document.getElementById('simStart');
+  if(simTick){clearInterval(simTick);simTick=null;b.textContent='reanudar';b.classList.remove('go');return;}
+  b.textContent='pausar';b.classList.add('go');
+  simTick=setInterval(()=>{if(simSecs>0){simSecs--;paintTimer();}else{clearInterval(simTick);simTick=null;b.textContent='iniciar';b.classList.remove('go');}},1000);
+};
+document.getElementById('simReset').onclick=()=>{if(simTick){clearInterval(simTick);simTick=null;}simSecs=3*3600;paintTimer();const b=document.getElementById('simStart');b.textContent='iniciar';b.classList.add('go');};
+
+/* ----------------- SEGMENTED TOGGLE ----------------- */
+document.querySelectorAll('#practSeg .segb').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#practSeg .segb').forEach(x=>x.classList.toggle('on',x===b));
+    const sim=b.dataset.mode==='sim';
+    document.getElementById('simMode').hidden=!sim;
+    document.getElementById('drillsMode').hidden=sim;
+  };
+});
 
 /* ----------------- INIT ----------------- */
-renderMeters(); renderTemas(); renderFormulas(); renderEjercicios(); renderQuiz();
+renderMeters(); renderTemas(); renderFormulas(); renderMetodo(); renderEjercicios(); renderTeoria(); renderFilters(); renderQuiz();
+renderDrillChips(); renderDrill(); renderSim(); paintTimer();
 </script>
 </body>
 </html>
